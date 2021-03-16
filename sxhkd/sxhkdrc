@@ -42,10 +42,6 @@ super + g
 # state/flags
 #
 
-# set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
@@ -120,9 +116,9 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# toggle floating window
-super + space
-	bspc node -t \~ floating
+# toggle window state
+super + {t,shift + t,s,f}
+        bspc node -t {tiled,pseudo_tiled,\~floating,\~fullscreen}
 
 # brightness control
 XF86MonBrightness{Down,Up}
