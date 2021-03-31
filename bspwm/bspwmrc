@@ -5,7 +5,7 @@ dunst -conf $HOME/.config/dunst/dunstrc > /dev/null 2>&1 &
 
 $HOME/.config/polybar/launch.sh
 
-bspc monitor -d I II III IV V
+bspc monitor -d I II III IV V VI
 
 bspc config border_width         1
 bspc config window_gap          10
@@ -17,8 +17,8 @@ bspc config gapless_monocle      true
 bspc rule -a discord desktop='^1'
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Google-chrome desktop='^2'
-bspc rule -a Xfce4-terminal desktop='^3' follow=on
-bspc rule -a Spotify desktop='^5'
+bspc rule -a Alacritty desktop='^3' follow=on
+bspc rule -a Spotify desktop='^6'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off

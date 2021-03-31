@@ -60,9 +60,9 @@ font-3 = Font Awesome 5 Free:pixelsize=12;2
 font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
 font-5 = Font Awesome 5 Brands:pixelsize=12;2
 
-modules-left = date
+modules-left = date playercurrent
 modules-center = bspwm
-modules-right = pulseaudio memory cpu battery powermenu
+modules-right = pulseaudio memory cpu battery wlan eth powermenu
 
 separator = |
 tray-position = right
@@ -144,7 +144,7 @@ label-focused-padding = 2
 label-occupied = %icon%
 label-occupied-padding = 2
 
-label-urgent = %index%!
+label-urgent = %icon%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
@@ -159,7 +159,8 @@ ws-icon-0 = I;
 ws-icon-1 = II;
 ws-icon-2 = III;
 ws-icon-3 = IV;
-ws-icon-4 = V;
+ws-icon-4 = V;
+ws-icon-5 = VI;
 ws-icon-default = %index%
 
 [module/i3]
@@ -263,10 +264,10 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlp3s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
@@ -285,7 +286,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp1s0
+interface = enp2s0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -318,7 +319,8 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+# format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
@@ -440,6 +442,10 @@ menu-0-0 = reboot
 menu-0-0-exec = systemctl reboot
 menu-0-1 = power off
 menu-0-1-exec = systemctl poweroff
+
+[module/playercurrent]
+type = custom/script
+exec = $HOME/.config/custom_scripts/player.sh
 
 
 [settings]

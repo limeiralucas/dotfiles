@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	xfce4-terminal
+    alacritty
 
 # program launcher
 super + d
@@ -125,6 +125,7 @@ XF86MonBrightness{Down,Up}
 	$HOME/.config/custom_scripts/brightness.sh {down,up}
 	# xbacklight {-dec,-inc} 5
 
+# audio and music
 XF86Audio{Raise,Lower}Volume
 	$HOME/.config/custom_scripts/volume.sh {up,down}
 	# pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
@@ -132,6 +133,18 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
 	$HOME/.config/custom_scripts/volume.sh mute
 	#pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioPlay
+    playerctl play-pause
+
+XF86AudioPause
+    playerctl play-pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
 
 # print screen
 super + Print
