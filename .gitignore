@@ -9,6 +9,7 @@
 !/polybar/
 !/fontconfig/
 !/zsh/
+!/alacritty/
 
 !/nvim/
 /nvim/*

@@ -1,0 +1,29 @@
+import:
+    - ~/.config/alacritty/themes/dracula.yml
+
+window:
+    padding:
+        x: 12
+        y: 12
+font:
+    normal:
+        family: InputMono
+        style: Regular
+
+    bold:
+        family: InputMono
+        style: Bold
+
+    italic:
+        family: InputMono
+        style: Italic
+
+    size: 9.0
+
+key_bindings:
+  - { key: F, mods: Control|Shift, action: ReceiveChar }
+
+background_opacity: 0.86
+colors:
+    primary:
+        background: '0x000000'
