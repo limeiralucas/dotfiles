@@ -38,6 +38,10 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# swap between tiled and floating
+super + space
+    bspc node focused -t \~floating
+
 #
 # state/flags
 #
@@ -149,3 +153,4 @@ XF86AudioPrev
 # print screen
 super + Print
 	maim -s -u | xclip -selection clipboard -t image/png -i
+
