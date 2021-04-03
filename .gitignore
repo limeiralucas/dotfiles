@@ -10,5 +10,9 @@
 !/fontconfig/
 !/zsh/
 
+!/nvim/
+/nvim/*
+!/nvim/init.vim
+
 !.xinitrc
 
