@@ -10,6 +10,7 @@
 !/fontconfig/
 !/zsh/
 !/alacritty/
+!/ranger/
 
 !/nvim/
 /nvim/*

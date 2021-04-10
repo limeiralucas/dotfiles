@@ -27,3 +27,30 @@ background_opacity: 0.86
 colors:
     primary:
         background: '0x000000'
+# BEGIN ACE
+colors:
+  primary:
+    background: '#1b1e25'
+    foreground: '#cbdee3'
+  cursor:
+    text:       '#1b1e25'
+    cursor:     '#cbdee3'
+  normal:
+    black:      '#1b1e25'
+    red:        '#5C758D'
+    green:      '#6D92A9'
+    yellow:     '#78B4C8'
+    blue:       '#9BADA1'
+    magenta:    '#87ADC6'
+    cyan:       '#8BC1D1'
+    white:      '#cbdee3'
+  bright:
+    black:      '#8e9b9e'
+    red:        '#5C758D'
+    green:      '#6D92A9'
+    yellow:     '#78B4C8'
+    blue:       '#9BADA1'
+    magenta:    '#87ADC6'
+    cyan:       '#8BC1D1'
+    white:      '#cbdee3'
+# END ACE
