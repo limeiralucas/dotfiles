@@ -16,5 +16,7 @@
 /nvim/*
 !/nvim/init.vim
 
+!/kitty/
+
 !.xinitrc
 

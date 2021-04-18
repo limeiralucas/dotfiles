@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/tagbar'
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'lilydjwg/colorizer'
 call plug#end()
 
 " default options
