@@ -1,10 +1,10 @@
 call plug#begin('~/.config/nvim/plugged')
+    Plug 'vim-python/python-syntax'
     Plug 'tomasiser/vim-code-dark'
     Plug 'pangloss/vim-javascript'
     Plug 'itchyny/lightline.vim'
     Plug 'itchyny/vim-gitbranch'
     Plug 'szw/vim-maximizer'
-    Plug 'christoomey/vim-tmux-navigator'
     Plug 'kassio/neoterm'
     Plug 'tpope/vim-commentary'
     Plug 'sbdchd/neoformat'
@@ -16,6 +16,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'lilydjwg/colorizer'
+    Plug 'yggdroot/indentline'
+    Plug 'raimondi/delimitmate'
+    Plug 'tpope/vim-sensible'
+    Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 " default options
@@ -45,6 +49,9 @@ let mapleader=" "
 colorscheme codedark
 let g:netrw_banner=0
 
+"" Hide Tmux Status
+" autocmd VimEnter,VimLeave * silent !tmux set status
+
 "" Path config
 if isdirectory($PWD .'/node_modules')
     let $PATH .= ':' . $PWD . '/node_modules/.bin'
@@ -62,9 +69,9 @@ augroup END
 inoremap jk <ESC>
 nnoremap <leader>v :e $HOME/.config/nvim/init.vim<CR>
 nnoremap <leader>% :tab split<CR>
-nnoremap <C-b> :CocCommand explorer<CR>
 nnoremap <C-n> :tabnew<CR>
 inoremap <C-n> <ESC>:tabnew<CR>
+nnoremap <leader>c :nohl<CR>
 
 " tabs
 nnoremap <M-tab> :tabnext<CR>
@@ -111,8 +118,8 @@ let g:lightline = {
     \}
 
 " fzf
-nnoremap <leader><space> :Files<CR>
-nnoremap <leader>f :GFiles?<CR>
+nnoremap <leader><space> :GFiles<CR>
+nnoremap <leader>f :Files<CR>
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \"find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
     \fzf#wrap({'dir': expand('%:p:h')}))
@@ -122,7 +129,6 @@ if has('nvim')
 endif
 
 " coc
-
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -160,26 +166,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" neoterm
-function! TermHome()
-    execute "normal! ^"
-endfunction
-tnoremap <C-ESC> <C-\><C-n>
-function! ClearTerm()
-    execute b:neoterm_id . "T clear"
-endfunction
-let g:neoterm_default_mod='vertical'
-let g:neoterm_size=60
-let g:neoterm_autoinsert=1
-nnoremap <C-q> :Ttoggle<CR>
-inoremap <C-q> <Esc>:Ttoggle<CR>
-tnoremap <C-q> <C-\><C-n>:Ttoggle<CR>
-tnoremap <C-l> <C-\><C-n>:call ClearTerm()<CR>i
-tnoremap <C-h> <C-\><C-n><C-w>h
-" tnoremap <C-l> <C-\><C-n><C-w>l
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <c-k> <C-\><C-n><C-w>k
-
 " tagbar
 let g:tagbar_show_visibility = 1
 
@@ -187,23 +173,20 @@ let g:tagbar_show_visibility = 1
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! s:ToggleFileTree()
-    if (exists("g:NERDTree") && g:NERDTree.IsOpen())
-        NERDTreeToggle
-    else
-        NERDTreeFind
-    endif
-endfunction
+function! SmartNERDTree()                   
+    if (@% == "" || g:NERDTree.IsOpen())
+        NERDTreeToggle                      
+    else                                    
+        NERDTreeFind                        
+    endif                                   
+endfun
 
-function! SyncFileTree()
-    if (exists("g:NERDTree") && g:NERDTree.IsOpen())
-        NERDTreeFind
-    endif
-endfunction
+nnoremap <leader>p :call SmartNERDTree()<CR>
 
-" nnoremap <C-b> :call ToggleFileTree()<CR>
-" inoremap <C-b> <ESC>:call ToggleFileTree()<CR>
-" autocmd BufEnter * call SyncFileTree() 
-nnoremap <C-b> :call <SID>ToggleFileTree()<CR>
+" indentline
+let g:indentLine_enabled = 1
+
+" Vim-python syntax
+let g:python_highlight_indent_errors = 0
+let g:python_highlight_space_errors = 0
+let g:python_highlight_all = 1
