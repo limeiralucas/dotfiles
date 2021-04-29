@@ -48,6 +48,8 @@ alias testglyph="echo ➜"
 alias testpythonglyph="echo "
 alias alconfig="nvim $HOME/.config/alacritty/alacritty.yml"
 alias setkb="setxkbmap"
+alias dockerstop="docker stop $(docker ps -a -q)"
+alias pipclean="pip freeze | xargs pip uninstall -y"
 
 ## Inits
 
