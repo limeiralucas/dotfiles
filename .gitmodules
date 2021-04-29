@@ -1,15 +1,20 @@
 [submodule "zsh/themes/ale-zsh"]
 	path = zsh/themes/ale-zsh
 	url = https://github.com/limeiralucas/ale-zsh.git
+    branch = master
 [submodule "zsh/plugins/fzf-tab"]
 	path = zsh/plugins/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab.git
+    branch = master
 [submodule "zsh/plugins/git-aliases"]
 	path = zsh/plugins/git-aliases
-	url = https://github.com/peterhurford/git-aliases.zsh.git
+	url = https://github.com/peterhurford/git-aliases.zsh.git 
+    branch = master
 [submodule "zsh/plugins/quoter-zsh"]
 	path = zsh/plugins/quoter-zsh
 	url = https://github.com/owenvoke/quoter-zsh.git
+    branch = master
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+    branch = master
