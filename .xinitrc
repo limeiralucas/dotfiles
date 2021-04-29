@@ -41,3 +41,4 @@ nitrogen --restore &
 xsetroot -cursor_name left_ptr
 picom --no-fading-openclose &
 exec bspwm
+# exec dbus-launch --autolaunch=$(cat /var/lib/dbus/machine-id) bspwm
