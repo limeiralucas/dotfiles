@@ -19,4 +19,4 @@
 !/kitty/
 
 !.xinitrc
-
+!.tmux.conf
