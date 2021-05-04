@@ -20,6 +20,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'raimondi/delimitmate'
     Plug 'tpope/vim-sensible'
     Plug 'wakatime/vim-wakatime'
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " default options

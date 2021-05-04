@@ -154,3 +154,10 @@ XF86AudioPrev
 super + Print
 	maim -s -u | xclip -selection clipboard -t image/png -i
 
+# Lock screen
+alt + shift + x
+    betterlockscreen -l blur
+
+# Picom
+super + alt + p
+	$HOME/.config/custom_scripts/toggle_compositor.sh
