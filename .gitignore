@@ -11,6 +11,7 @@
 !/zsh/
 !/alacritty/
 !/ranger/
+!/picom/
 
 !/nvim/
 /nvim/*
