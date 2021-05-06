@@ -4,7 +4,7 @@ LIMIT=35
 STATUS=$(playerctl status 2> /dev/null)
 
 case $STATUS in
-    Playing | Pause)
+    Playing | Paused)
         ARTIST=$(playerctl metadata artist)
         TITLE=$(playerctl metadata title)
         TEXT="$TITLE - $ARTIST"
