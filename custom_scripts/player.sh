@@ -14,9 +14,9 @@ case $STATUS in
             SECOND=$(date +%S)
             STEP=$(( 10#$SECOND % $LIMIT ))
 
-            echo "${TEXT:STEP:LENGTH} | ${TEXT:0:STEP}"
+            echo "♪ ${TEXT:STEP:LENGTH} | ${TEXT:0:STEP}"
         else
-            echo $TEXT
+            echo "♪ $TEXT"
         fi
         break
         ;;
