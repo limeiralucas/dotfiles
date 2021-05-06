@@ -1,6 +1,26 @@
 #!/bin/bash
 
-ARTIST=$(playerctl metadata artist)
-TITLE=$(playerctl metadata title)
+LIMIT=35
+STATUS=$(playerctl status 2> /dev/null)
 
-echo "$TITLE - $ARTIST" | cut -c -35 | awk '{print $0"..."}'
+case $STATUS in
+    Playing | Pause)
+        ARTIST=$(playerctl metadata artist)
+        TITLE=$(playerctl metadata title)
+        TEXT="$TITLE - $ARTIST"
+        LENGTH=${#TEXT}
+
+        if [ $LENGTH -gt $LIMIT ]; then
+            SECOND=$(date +%S)
+            STEP=$(( 10#$SECOND % $LIMIT ))
+
+            echo "${TEXT:STEP:LENGTH} | ${TEXT:0:STEP}"
+        else
+            echo $TEXT
+        fi
+        break
+        ;;
+    *)
+        echo ""
+        ;;
+esac
