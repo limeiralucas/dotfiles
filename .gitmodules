@@ -14,3 +14,7 @@
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
     branch = master
+[submodule "zsh/plugins/oh-my-git-aliases"]
+	path = zsh/plugins/oh-my-git-aliases
+	url = https://github.com/mjkonarski/oh-my-git-aliases.git
+    branch = master
