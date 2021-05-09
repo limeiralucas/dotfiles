@@ -6,10 +6,6 @@
 	path = zsh/plugins/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab.git
     branch = master
-[submodule "zsh/plugins/git-aliases"]
-	path = zsh/plugins/git-aliases
-	url = https://github.com/peterhurford/git-aliases.zsh.git 
-    branch = master
 [submodule "zsh/plugins/quoter-zsh"]
 	path = zsh/plugins/quoter-zsh
 	url = https://github.com/owenvoke/quoter-zsh.git

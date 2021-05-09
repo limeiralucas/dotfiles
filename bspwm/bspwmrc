@@ -2,10 +2,11 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 dunst -conf $HOME/.config/dunst/dunstrc > /dev/null 2>&1 &
+nitrogen --restore &
 
 $HOME/.config/polybar/launch.sh
 
-bspc monitor -d I II III IV V VI
+bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         1
 bspc config window_gap           10

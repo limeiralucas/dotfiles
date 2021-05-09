@@ -18,7 +18,6 @@ case $STATUS in
         else
             echo "♪ $TEXT"
         fi
-        break
         ;;
     *)
         echo ""
