@@ -161,3 +161,7 @@ alt + shift + x
 # Picom
 super + alt + p
 	$HOME/.config/custom_scripts/toggle_compositor.sh
+
+# Scratchpad
+super + u
+    $HOME/.config/custom_scripts/scratch dropdown

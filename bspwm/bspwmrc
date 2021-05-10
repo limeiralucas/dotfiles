@@ -25,3 +25,6 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Dunst layer='above'
 bspc rule -a Mirage state=floating
+bspc rule -a dropdown sticky=on state=floating hidden=on
+
+kitty --class dropdown &
