@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LIMIT=35
-STATUS=$(playerctl status 2> /dev/null)
+STATUS=$(playerctl --ignore-player=chromium status 2> /dev/null)
 TRUNCATE=1
 
 case $STATUS in

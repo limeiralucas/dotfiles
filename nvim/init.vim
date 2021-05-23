@@ -21,6 +21,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-sensible'
     Plug 'wakatime/vim-wakatime'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'wojciechkepka/bogster'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 " default options
@@ -47,7 +49,7 @@ set updatetime=300
 filetype plugin indent on
 let mapleader=" "
 
-colorscheme codedark
+colorscheme gruvbox
 let g:netrw_banner=0
 
 "" Hide Tmux Status
@@ -64,6 +66,7 @@ augroup FileTypeSpecificAutocommands
     autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 "" Custom keymaps
@@ -73,6 +76,8 @@ nnoremap <leader>% :tab split<CR>
 nnoremap <C-n> :tabnew<CR>
 inoremap <C-n> <ESC>:tabnew<CR>
 nnoremap <leader>c :nohl<CR>
+vnoremap > >gv
+vnoremap < <gv
 
 " tabs
 nnoremap <M-tab> :tabnext<CR>
@@ -115,7 +120,7 @@ let g:lightline = {
     \},
     \'component': {'tagbar': '%{tagbar#currenttag("%s", "", "f")}'},
     \'component_function': {'gitbranch': 'gitbranch#name'},
-    \'colorscheme': 'codedark',
+    \'colorscheme': 'gruvbox',
     \}
 
 " fzf
@@ -186,6 +191,7 @@ nnoremap <leader>p :call SmartNERDTree()<CR>
 
 " indentline
 let g:indentLine_enabled = 1
+let g:indentLine_setConceal = 0
 
 " Vim-python syntax
 let g:python_highlight_indent_errors = 0
