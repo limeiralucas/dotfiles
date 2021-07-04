@@ -1,3 +1,7 @@
+# Autocompletion enabled
+autoload -Uz compinit
+compinit
+
 # History
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
@@ -27,12 +31,6 @@ bindkey "^[[F" end-of-line
 bindkey "^[[1;3C" end-of-line
 bindkey "^[[1;3D" beginning-of-line 
 
-## Functions
-
-function testnerd {
-    fc-list | grep -i "nerd.*style=Regular" | sed -n "$1p" | cut -d ':' -f2- | xargs | { read arg; eval "urxvt -font 'xft:${arg}:size=11 -e echo ' &"}
-}
-
 ## Aliases
 
 alias prompt-pwd=pwd
@@ -45,18 +43,19 @@ alias urestart="sudo systemctl restart urxvtd@lucas"
 alias ustop="sudo systemctl stop urxvtd@lucas"
 alias xrreload="xrdb ~/.Xdefaults"
 alias testglyph="echo ➜"
-alias testpythonglyph="echo "
 alias alconfig="nvim $HOME/.config/alacritty/alacritty.yml"
 alias setkb="setxkbmap"
-alias dockerstop="docker stop $(docker ps -a -q)"
 alias pipclean="pip freeze | xargs pip uninstall -y"
+alias battery-status="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 ## Inits
 
 # pyenv
-export PATH="/home/lucas/.pyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -93,7 +92,7 @@ source $ZSH_PLUGIN_DIR/copy-pasta/copy-pasta.plugin.zsh;
 source $ZSH_PLUGIN_DIR/fzf-tab/fzf-tab.plugin.zsh;
 
 # git aliases
-source $ZSH_PLUGIN_DIR/git-aliases/git-aliases.zsh;
+source $ZSH_PLUGIN_DIR/oh-my-git-aliases/oh-my-git-aliases.sh;
 
 # quoter
 source $ZSH_PLUGIN_DIR/quoter-zsh/quoter-zsh.plugin.zsh;
@@ -104,3 +103,4 @@ source $ZSH_PLUGIN_DIR/quoter-zsh/quoter-zsh.plugin.zsh;
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/lucas/.sdkman"
 [[ -s "/home/lucas/.sdkman/bin/sdkman-init.sh" ]] && source "/home/lucas/.sdkman/bin/sdkman-init.sh"
+
