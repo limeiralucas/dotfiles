@@ -23,6 +23,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'wojciechkepka/bogster'
     Plug 'morhetz/gruvbox'
+    Plug 'ap/vim-buftabline'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'stevearc/vim-arduino'
 call plug#end()
 
 " default options
@@ -80,7 +83,8 @@ vnoremap > >gv
 vnoremap < <gv
 
 " tabs
-nnoremap <M-tab> :tabnext<CR>
+nnoremap <tab> :bnext<CR>
+nnoremap <S-tab> :bprev<CR>
 nnoremap <M-1> 1gt
 nnoremap <M-2> 2gt
 nnoremap <M-3> 3gt

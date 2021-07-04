@@ -2,11 +2,13 @@
 
 # Terminate already running bar instances
 killall -q polybar
-# If all your bars have ipc enabled, you can also use 
-# polybar-msg cmd quit
 
-# Launch bar1 and bar2
-echo "---" | tee -a /tmp/polybar-example.log
-polybar example --reload 2>&1 | tee -a /tmp/polybar-example.log & disown
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-echo "Bars launched..."
+# Launch bar
+polybar example --reload &
+
+if [[ $(xrandr -q | grep 'DP3 connected') ]]; then
+    polybar external --reload &
+fi

@@ -27,7 +27,7 @@ secondary = #ffffff
 alert = #bd2c40
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = eDP1
 width = 100%
 height = 30
 ;offset-x = 1%
@@ -70,7 +70,51 @@ tray-padding = 2
 wm-restack = bspwm
 
 cursor-click = pointer
-eursor-scroll = ns-resize
+cursor-scroll = ns-resize
+
+[bar/external]
+monitor = DP3
+width = 100%
+height = 30
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+# bottom = true
+
+background = ${colors.transparent}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = #00564d
+
+border-size = 0
+border-color = #0D00564d
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Droid Sans Mono:style=Regular:pixelsize=13;2
+font-1 = unifont:fontformat=truetype:size=14:antialias=false;2
+font-2 = siji:style=Regular:pixelsize=24;2
+font-3 = Font Awesome 5 Free:pixelsize=12;2
+font-4 = Font Awesome 5 Free Solid:pixelsize=13;2
+font-5 = Font Awesome 5 Brands:pixelsize=13;2
+
+modules-left = bspwm xwindow
+modules-center = 
+modules-right = 
+
+separator = |
+tray-position = none
+
+wm-restack = bspwm
+
+cursor-click = pointer
+cursor-scroll = ns-resize
 
 [module/pacman-updates]
 type = custom/script
@@ -115,6 +159,7 @@ label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
+pin-workspaces = true
 type = internal/bspwm
 
 label-focused = %icon%
@@ -136,16 +181,16 @@ label-empty-padding = 1
 ; Separator in between workspaces
 ; label-separator = |
 
-ws-icon-0 = I;1
-ws-icon-1 = II;2
-ws-icon-2 = III;3
-ws-icon-3 = IV;4
-ws-icon-4 = V;5
-ws-icon-5 = VI;6
-ws-icon-6 = VII;7
-ws-icon-7 = VIII;8
-ws-icon-8 = IX;9
-ws-icon-9 = X;0
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 0;0
 ws-icon-default = %index%
 
 [module/mpd]
@@ -219,7 +264,7 @@ ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = enp0s13f0u1u3 
 interval = 3.0
 
 format-connected-underline = #55aa55
