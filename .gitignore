@@ -19,5 +19,6 @@
 
 !/kitty/
 
+!/tmux/
+
 !.xinitrc
-!.tmux.conf
