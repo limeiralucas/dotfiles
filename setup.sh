@@ -5,11 +5,20 @@ YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 BOLD='\033[1m'
 NC='\033[0m'
-SCRIPT=$(readlink -f "$0")
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    SCRIPT=$(greadlink -f "$0")
+else
+    SCRIPT=$(readlink -f "$0")
+fi
 SCRIPTPATH=$(dirname "$SCRIPT")
 
 function color() {
-    echo -e "$1$2${NC}"
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "$1$2${NC}"
+    else
+        echo -e "$1$2${NC}"
+    fi
 }
 
 function src_shell() {
