@@ -8,6 +8,11 @@ if [ ! -f $HOME/.tmux.conf ]; then
     ln -s $SCRIPTPATH/tmux/tmuxconf $HOME/.tmux.conf
 fi
 
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+    echo "Setup tmux plugin manager"
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
+
 if [ ! -f $HOME/.zshrc ]; then
     echo "Setup zsh config"
     ln -s $SCRIPTPATH/zsh/zshrc $HOME/.zshrc
