@@ -19,13 +19,12 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'yggdroot/indentline'
     Plug 'raimondi/delimitmate'
     Plug 'tpope/vim-sensible'
-    Plug 'wakatime/vim-wakatime'
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'wojciechkepka/bogster'
     Plug 'morhetz/gruvbox'
     Plug 'ap/vim-buftabline'
     Plug 'plasticboy/vim-markdown'
-    Plug 'stevearc/vim-arduino'
+    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " default options
@@ -49,6 +48,8 @@ set cmdheight=1
 set shortmess+=c
 set signcolumn=yes
 set updatetime=300
+set colorcolumn=80
+set background=dark
 filetype plugin indent on
 let mapleader=" "
 
@@ -70,6 +71,7 @@ augroup FileTypeSpecificAutocommands
     autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType vimwiki setlocal concealcursor=nc
 augroup END
 
 "" Custom keymaps
@@ -201,3 +203,15 @@ let g:indentLine_setConceal = 0
 let g:python_highlight_indent_errors = 0
 let g:python_highlight_space_errors = 0
 let g:python_highlight_all = 1
+
+" VimWiki
+let g:vimwiki_ext2syntax = {'.wiki': 'markdown'}
+let g:vimwiki_list = [{
+    \ 'automatic_nested_syntaxes': 1,
+    \ 'path_html': '$HOME/vimwiki/html',
+    \ 'path': '$HOME/vimwiki/content',
+    \ 'syntax': 'markdown',
+    \ 'custom_wiki2html': 'wiki2html',
+    \ 'template_ext': '.html',
+    \ 'ext': '.md'
+  \ }]
