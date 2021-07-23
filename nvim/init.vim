@@ -53,6 +53,12 @@ set background=dark
 filetype plugin indent on
 let mapleader=" "
 
+if has('mac') && has('gui_running')
+    set macligatures
+
+    set guifont=FiraCode-Retina:h14
+endif
+
 colorscheme gruvbox
 let g:netrw_banner=0
 
@@ -83,6 +89,7 @@ inoremap <C-n> <ESC>:tabnew<CR>
 nnoremap <leader>c :nohl<CR>
 vnoremap > >gv
 vnoremap < <gv
+vnoremap <CR> :'<,'>y+<CR>
 
 " tabs
 nnoremap <tab> :bnext<CR>

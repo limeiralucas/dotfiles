@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+
+import re
+from sys import argv
+
+def normalize_url(url):
+    return url.lower().replace(' ', '-')
+
+if __name__ == "__main__":
+    # FORCE=argv[1]
+    # SYNTAX=argv[2]
+    # EXTENSION=argv[3]
+    # OUTPUTDIR=argv[4]
+    INPUT=argv[1]
+    # CSSFILE=argv[6]
+
+    lines = []
+
+    exp = re.compile(r'^.*\[.*\]\(#(.*)\).*$') 
+    with open(INPUT, "r") as file:
+        while(line := file.readline()):
+            m = exp.match(line)
+            if m and len(m.groups()):
+                old_url = m.groups(0)[0]
+                url = normalize_url(old_url)
+                line = line.replace(old_url, url)
+            lines.append(line)
+
+    print("".join(lines))
+
