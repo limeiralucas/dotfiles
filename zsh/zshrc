@@ -59,6 +59,7 @@ alias setkb="setxkbmap"
 alias pipclean="pip freeze | xargs pip uninstall -y"
 alias battery-status="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias sed=gsed
+alias poetryenv="source $(poetry env info --path)/bin/activate"
 
 ## Inits
 
