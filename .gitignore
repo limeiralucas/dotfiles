@@ -15,7 +15,7 @@
 
 !/nvim/
 /nvim/*
-!/nvim/init.vim
+!/nvim/*.vim
 
 !/kitty/
 
