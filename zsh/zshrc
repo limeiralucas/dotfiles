@@ -1,8 +1,7 @@
-export ZSH_CONFIG_SET=1
-
 # Autocompletion enabled
+fpath+=~/.config/zsh/completions
 autoload -Uz compinit
-compinit
+compinit -u
 
 # History
 HISTFILE=$HOME/.zsh_history
@@ -13,6 +12,7 @@ setopt appendhistory
 # ENV
 CUSTOM_SCRIPTS=$HOME/.config/custom_scripts
 LOCAL_SCRIPTS=$HOME/.localscripts
+LOCAL_BIN=$HOME/.local/bin
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -U -g ""'
 
@@ -20,7 +20,7 @@ export GOPATH=$HOME/go-workspace
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-export PATH=$PATH:$CUSTOM_SCRIPTS:$LOCAL_SCRIPTS
+export PATH=$LOCAL_BIN:$PATH:$CUSTOM_SCRIPTS:$LOCAL_SCRIPTS
 
 # Vim Wiki extensions
 export VIMWIKI_MARKDOWN_EXTENSIONS="toc,fenced_code,codehilite"
@@ -78,9 +78,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Enable menu select completion
 zstyle ':completion:*' menu select
-
-# Load .zsh files from completions folder
-for f in $HOME/.config/zsh/completions/*.zsh; do source $f; done
 
 ## Plugins
 export ZSH_PLUGIN_DIR="$HOME/.config/zsh/plugins"
