@@ -21,3 +21,6 @@
 [submodule "kitty/kitty-themes"]
 	path = kitty/kitty-themes
 	url = git@github.com:dexpota/kitty-themes.git
+[submodule "zsh/plugins/hacker-quotes"]
+	path = zsh/plugins/hacker-quotes
+	url = git@github.com:oldratlee/hacker-quotes.git
