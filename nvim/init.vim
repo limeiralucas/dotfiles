@@ -1,5 +1,5 @@
 " load plugins
-source ./plugins.vim
+source $HOME/.config/nvim/plugins.vim
 
 " default options
 set completeopt=menuone,noinsert,noselect
