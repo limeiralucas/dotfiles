@@ -3,12 +3,10 @@
 from sys import argv
 
 if __name__ == "__main__":
-    try:
-        time = argv[1]
-        hour, minute = time.split(":")
-        minute = int(minute) * 10/6
+    time = argv[1]
+    hour, minute = time.split(":")
+    total_minutes = int(hour) * 60 + int(minute)
 
-        print("{}.{}".format(hour, minute))
-    except Exception:
-        print("Time format needs to be hh:mm")
-        exit(1)
+    converted_time = total_minutes / 60.0
+
+    print(converted_time)
