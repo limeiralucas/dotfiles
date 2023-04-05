@@ -92,9 +92,6 @@ source $ZSH_PLUGIN_DIR/fzf-tab/fzf-tab.plugin.zsh;
 # git aliases
 source $ZSH_PLUGIN_DIR/oh-my-git-aliases/oh-my-git-aliases.sh;
 
-# quoter
-# source $ZSH_PLUGIN_DIR/quoter-zsh/quoter-zsh.plugin.zsh;
-
 # hacker quote
 source $ZSH_PLUGIN_DIR/hacker-quotes/hacker-quotes.plugin.zsh;
 
